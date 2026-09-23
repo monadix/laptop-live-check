@@ -194,7 +194,7 @@ display() {
   reference 'Test brightness from minimum to maximum with Fn keys or brightnessctl set 10% / 50% / 100%; no flicker or jumps.'
   brightnessctl -m 2>&1 || true
   if [[ -z "${DISPLAY:-}" ]]; then echo 'Start the graphical session first; DISPLAY is unset.'; return 1; fi
-  feh --fullscreen --hide-pointer --auto-zoom --sort filename "$PATTERNS"/{white,black,red,green,blue,gray,gradient}.png
+  feh --fullscreen --hide-pointer --auto-zoom "$PATTERNS"/{white,black,red,green,blue,gray,gradient}.png
 }
 
 input() {

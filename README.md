@@ -19,7 +19,8 @@ Identify the **whole USB device**, carefully distinguishing it from your system 
 
 ```bash
 lsblk -o NAME,SIZE,MODEL,MOUNTPOINTS
-sudo dd if=result/iso/*.iso of=/dev/sdX bs=4M status=progress conv=fsync
+iso_file=$(find result/iso -maxdepth 1 -name '*.iso' -print -quit)
+test -n "$iso_file" && sudo dd if="$iso_file" of=/dev/sdX bs=4M status=progress conv=fsync
 sync
 ```
 

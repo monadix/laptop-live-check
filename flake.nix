@@ -52,9 +52,11 @@
         ];
       };
     in {
-      packages.${system}.default = iso.config.system.build.isoImage;
-      packages.${system}.iso = iso.config.system.build.isoImage;
-      packages.${system}.laptop-check = laptopCheck;
+      packages.${system} = {
+        default = iso.config.system.build.isoImage;
+        iso = iso.config.system.build.isoImage;
+        laptop-check = laptopCheck;
+      };
       nixosConfigurations.inspection = iso;
     };
 }
