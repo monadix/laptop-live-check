@@ -14,7 +14,7 @@
           inxi dmidecode pciutils usbutils lshw nvme-cli smartmontools
           lm_sensors edid-decode fwupd stress-ng memtester
           libinput evtest brightnessctl v4l-utils mpv alsa-utils
-          networkmanager bluez bolt feh xorg.xrandr xorg.xsetroot
+          networkmanager bluez bolt feh xrandr xsetroot
           udev systemd upower tlp jq
         ];
         text = builtins.readFile ./scripts/laptop-check.sh;
@@ -28,6 +28,8 @@
         modules = [
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           ({ ... }: {
+            # A live USB never imports a ZFS root pool; avoid forcing an import.
+            boot.zfs.forceImportRoot = false;
             networking.networkmanager.enable = true;
             hardware.bluetooth.enable = true;
             services.hardware.bolt.enable = true;
