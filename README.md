@@ -65,4 +65,4 @@ The system is intentionally offline-capable and does not automatically update fi
 
 ## Development
 
-`bash -n scripts/laptop-check.sh` checks shell syntax. `python3 scripts/patterns.py /tmp/patterns` generates the seven PNGs. The GitHub workflow evaluates and builds the actual NixOS ISO; a script syntax check alone does not verify that NixOS options or package attributes exist. Keep `flake.lock` after the first `nix flake lock` to pin nixpkgs for reproducible rebuilds.
+`bash -n scripts/laptop-check.sh` checks shell syntax. `python3 scripts/patterns.py /tmp/patterns` generates the seven PNGs. The GitHub workflow evaluates and builds the actual NixOS ISO; a script syntax check alone does not verify that NixOS options or package attributes exist. The committed `flake.lock` pins the tested nixpkgs revision; update it intentionally with `nix flake update nixpkgs` and rebuild.
