@@ -32,7 +32,7 @@ UEFI boot via F12 on the ThinkPad. Secure Boot may need to be disabled for this 
 1. F1 BIOS: check Supervisor, Power-On, System Management and drive passwords are unset; Absolute is not activated. Confirm MTM.
 2. F12 boot: read the `quick` report in the automatically opened terminal. Run `laptop-check help` at any time.
 3. Unplug the charger, wait a few minutes, run `laptop-check battery`; reconnect it to **both USB-C ports**, one after the other. Test data with a USB-C device in each port too.
-4. Run `laptop-check stress` (3 minutes), `laptop-check memory` (one pass), and `laptop-check firmware`.
+4. Run `laptop-check stress` (3 minutes), `laptop-check memory` (one pass), and `laptop-check firmware`. `inventory` provides an optional full hardware listing.
 5. Run `display`, `input`, `camera`, `audio`, `network` and `ports` with the actual screen and peripherals. Move the lid gently and check that the display and system remain stable.
 6. Run `laptop-check save /path/to/mounted/writable/USB` before shutting down. Reports include serial numbers: redact them before posting publicly.
 
