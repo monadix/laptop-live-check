@@ -12,10 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@v19
-      - name: Resolve nixpkgs input
-        run: |
-          nix flake lock
-          cat flake.lock
       - name: Build ISO
         run: nix build .#iso --print-build-logs
       - name: Publish ISO artifact

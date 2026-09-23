@@ -30,7 +30,7 @@
           ({ ... }: {
             networking.networkmanager.enable = true;
             hardware.bluetooth.enable = true;
-            services.bolt.enable = true;
+            services.hardware.bolt.enable = true;
             services.upower.enable = true;
             services.fwupd.enable = true;
             services.xserver.enable = true;
