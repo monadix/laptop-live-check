@@ -253,7 +253,8 @@ save() {
     echo 'Usage: laptop-check save /path/to/already-mounted/writable/USB'; return 2
   fi
   if [[ ! -d "$REPORT_DIR" ]]; then echo 'No reports found; run laptop-check quick first.'; return 1; fi
-  local target="$dest/laptop-check-$(date +%Y%m%d-%H%M%S)"
+  local target
+  target="$dest/laptop-check-$(date +%Y%m%d-%H%M%S)"
   mkdir -p "$target" || return 1
   cp -v "$REPORT_DIR"/*.txt "$target"/ || return 1
   echo "Saved to $target"
@@ -268,7 +269,8 @@ main() {
     *) printf 'Unknown command: %s\n\n' "$command" >&2; help >&2; return 2 ;;
   esac
   mkdir -p "$REPORT_DIR" || return 1
-  local report="$REPORT_DIR/$(date +%Y%m%d-%H%M%S)-${command}.txt"
+  local report
+  report="$REPORT_DIR/$(date +%Y%m%d-%H%M%S)-${command}.txt"
   ( "$command" ) 2>&1 | tee "$report"
   status=${PIPESTATUS[0]}
   printf '\nReport: %s\n' "$report"

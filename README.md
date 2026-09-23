@@ -52,7 +52,7 @@ If `quick` reports `UNKNOWN`, read its raw tool output and run the specific subc
 
 ## Why these parts
 
-The minimal NixOS installer supplies broad hardware support. Openbox and xterm provide a small GUI needed for screen, camera and pointer checks. `nvme-cli` reads drive health; sysfs reports the battery's learned capacity; `stress-ng` and `memtester` test stability; `feh` shows pixel patterns. `fwupd` and `bolt` provide firmware and Thunderbolt context, but cannot replace opening BIOS or physically testing both sockets. Gzip level 1 trades a larger ISO for fast decompression at the seller's desk.
+The minimal NixOS installer supplies broad hardware support. Openbox and xterm provide a small GUI needed for screen, camera and pointer checks. `nvme-cli` reads drive health; sysfs reports the battery's learned capacity; `stress-ng` and `memtester` test stability; `feh` shows pixel patterns. `fwupd` and `bolt` provide firmware and Thunderbolt context, but cannot replace opening BIOS or physically testing both sockets. Low level Zstandard avoids the maximum-compression default's long build time and balances ISO size against read speed; actual boot speed also depends on your USB drive and firmware.
 
 The system is intentionally offline-capable and does not automatically update firmware, write to internal disks, or upload reports. `save` is the explicit exception: it copies reports to the directory you provide.
 

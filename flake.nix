@@ -45,8 +45,8 @@
             users.users.nixos.extraGroups = [ "networkmanager" "video" "audio" ];
             environment.systemPackages = [ laptopCheck pkgs.xterm pkgs.openbox pkgs.feh ];
             environment.etc."laptop-check/patterns".source = patterns;
-            # Favor fast decompression over ISO size for a short in-person inspection.
-            isoImage.squashfsCompression = "gzip -Xcompression-level 1";
+            # Avoid the slow, maximum-compression default when making the ISO.
+            isoImage.squashfsCompression = "zstd -Xcompression-level 1";
             system.stateVersion = "25.11";
           })
         ];
