@@ -1,7 +1,7 @@
 {
   description = "Offline laptop inspection NixOS live ISO";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
   outputs = { self, nixpkgs }:
     let
@@ -47,7 +47,7 @@
             environment.etc."laptop-check/patterns".source = patterns;
             # Avoid the slow, maximum-compression default when making the ISO.
             isoImage.squashfsCompression = "zstd -Xcompression-level 1";
-            system.stateVersion = "25.11";
+            system.stateVersion = "26.05";
           })
         ];
       };
